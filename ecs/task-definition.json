@@ -1,0 +1,58 @@
+{
+  "family": "notification-service",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::581979856637:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::581979856637:role/ecsTaskRole",
+  "containerDefinitions": [
+    {
+      "name": "notification-service",
+      "image": "IMAGE_URI",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "SPRING_PROFILES_ACTIVE",
+          "value": "prod"
+        }
+      ],
+      "secrets": [
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/notification-service",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "notification-service",
+          "awslogs-create-group": "true"
+        }
+      }
+    },
+    {
+      "name": "otel-collector",
+      "image": "IMAGE_URI",
+      "essential": true,
+      "command": [
+        "--config=/etc/ecs/otel-collector-config.yaml"
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/notification-otel-collector",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "otel-collector",
+          "awslogs-create-group": "true"
+        }
+      }
+    }
+  ]
+}
