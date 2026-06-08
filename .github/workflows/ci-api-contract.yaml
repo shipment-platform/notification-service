@@ -1,0 +1,25 @@
+name: Deploy OpenAPI Contract
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'notification-service-openapi-contract/src/main/openapi/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Deploy contract module
+        run: ./mvnw deploy -pl notification-service-openapi-contract
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

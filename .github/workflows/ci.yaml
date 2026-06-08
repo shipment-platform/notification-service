@@ -43,7 +43,7 @@ jobs:
       - name: Build and test
         run: ./mvnw clean verify -Dspring.profiles.active=test
 
-  shipment-api-contract-module-docker-image-build-and-push:
+  notification-service-app-module-docker-image-build-and-push:
     needs: build-test
     if: github.ref == 'refs/heads/main' #only for main branch
 
@@ -74,12 +74,6 @@ jobs:
 
       - name: Compile and package app
         run: ./mvnw install -Dspring.profiles.active=test -am -DskipTests
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SPRING_PROFILES_ACTIVE: test
-
-      - name: Deploy contract module
-        run: ./mvnw deploy -pl notification-service-openapi-contract
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SPRING_PROFILES_ACTIVE: test
