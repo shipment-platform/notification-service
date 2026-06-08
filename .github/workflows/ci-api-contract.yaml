@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'notification-service-openapi-contract/src/main/openapi/**'
+  workflow_dispatch:
 
 jobs:
   deploy:
