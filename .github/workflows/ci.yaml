@@ -73,7 +73,7 @@ jobs:
             maven-${{ runner.os }}
 
       - name: Compile and package app
-        run: ./mvnw install notification-service -Dspring.profiles.active=test -am -DskipTests
+        run: ./mvnw install -Dspring.profiles.active=test -am -DskipTests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SPRING_PROFILES_ACTIVE: test
