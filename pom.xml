@@ -20,4 +20,13 @@
 		<module>notification-service-app</module>
 		<module>notification-service-openapi-contract</module>
 	</modules>
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>
+				https://maven.pkg.github.com/shipment-platform/notification-service
+			</url>
+		</repository>
+	</distributionManagement>
 </project>
