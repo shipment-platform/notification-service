@@ -1,4 +1,4 @@
-package com.danijelsudimac.notification_service;
+package com.danijelsudimac.notification.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
