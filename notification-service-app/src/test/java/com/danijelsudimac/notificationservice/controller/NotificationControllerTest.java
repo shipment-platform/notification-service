@@ -1,6 +1,5 @@
-package com.danijelsudimac.notificationservice.service;
+package com.danijelsudimac.notificationservice.controller;
 
-import com.danijelsudimac.notificationservice.controller.NotificationController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;

@@ -16,7 +16,10 @@
       "portMappings": [
         {
           "containerPort": 8080,
-          "protocol": "tcp"
+          "protocol": "tcp",
+          "name": "notification-service-8080",
+          "appProtocol": "http"
+
         }
       ],
       "environment": [
