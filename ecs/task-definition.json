@@ -28,12 +28,6 @@
           "value": "prod"
         }
       ],
-      "secrets": [
-        {
-          "name": "SPRING_PROMETHEUS_URL",
-          "valueFrom": "arn:aws:ssm:us-east-2:581979856637:parameter/SPRING_PROMETHEUS_URL"
-        }
-      ],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
@@ -42,6 +36,16 @@
           "awslogs-stream-prefix": "notification-service",
           "awslogs-create-group": "true"
         }
+      },
+      "healthCheck": {
+        "command": [
+          "CMD-SHELL",
+          "wget -q --spider http://localhost:8080/actuator/health || exit 1"
+        ],
+        "interval": 30,
+        "timeout": 5,
+        "retries": 3,
+        "startPeriod": 180
       }
     },
     {
@@ -50,6 +54,12 @@
       "essential": true,
       "command": [
         "--config=/etc/ecs/otel-collector-config.yaml"
+      ],
+      "secrets": [
+        {
+          "name": "SPRING_PROMETHEUS_URL",
+          "valueFrom": "arn:aws:ssm:us-east-2:581979856637:parameter/SPRING_PROMETHEUS_URL"
+        }
       ],
       "logConfiguration": {
         "logDriver": "awslogs",
