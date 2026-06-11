@@ -6,7 +6,7 @@ on:
 env:
   ECR_REPOSITORY: shipment-platform/notification-service
   ECR_REPOSITORY_OTEL: shipment-platform/notification-otel-collector
-  ECS_SERVICE: shipment-service-service-k8orxkjb
+  ECS_SERVICE: notification-service-service-u8id7fe4
   ECS_CLUSTER: shipment-service-cluster
 
 jobs:

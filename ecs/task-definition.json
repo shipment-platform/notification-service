@@ -29,6 +29,10 @@
         }
       ],
       "secrets": [
+        {
+          "name": "SPRING_PROMETHEUS_URL",
+          "valueFrom": "arn:aws:ssm:us-east-2:581979856637:parameter/SPRING_PROMETHEUS_URL"
+        }
       ],
       "logConfiguration": {
         "logDriver": "awslogs",
