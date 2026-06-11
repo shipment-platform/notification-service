@@ -1,0 +1,10 @@
+### send email
+POST {{host}}/notifications/shipment-created
+Content-Type: application/json
+
+{
+       "email": "danijel@example.com",
+       "externalId": "ext-12345",
+       "trackingNumber": "TRK987654321"
+     }
+
