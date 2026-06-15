@@ -1,3 +1,25 @@
 spring:
   application:
     name: notification-service
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    tags:
+      application: shipment-service
+  otlp:
+    metrics:
+      export:
+        resource-attributes:
+          service.name: ${spring.application.name}
