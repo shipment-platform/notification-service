@@ -1,5 +1,6 @@
-# notification-service
-Service exposing REST endpoint for receiving request from tracking-service to publish notifications to clients. 
+# Notification service
+Service exposing REST endpoint for receiving request from tracking-service to publish notifications to clients.
+Currently just logging calls.
 
 ## Technologies
 Java 21, Spring Boot 3, Open API 
